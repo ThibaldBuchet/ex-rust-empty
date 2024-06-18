@@ -17,8 +17,7 @@
 /// | 1 | 0 |  1  |
 /// | 1 | 1 |  0  |
 pub fn nand(first: bool, second: bool) -> bool {
-    // Write your code here
-    todo!()
+    !(first && second)
 }
 
 /// Test if none of the inputs are true
@@ -38,8 +37,7 @@ pub fn nand(first: bool, second: bool) -> bool {
 /// | 1 | 0 |  0  |
 /// | 1 | 1 |  0  |
 pub fn nor(first: bool, second: bool) -> bool {
-    // Write your code here
-    todo!()
+    !(first || second)
 }
 
 /// Test if either one of the 2 inputs are true but not both
@@ -59,8 +57,7 @@ pub fn nor(first: bool, second: bool) -> bool {
 /// | 1 | 0 |  1  |
 /// | 1 | 1 |  0  |
 pub fn xor(first: bool, second: bool) -> bool {
-    // Write your code here
-    todo!()
+    first ^ second
 }
 
 /// Test if both inputs are true or both are false
@@ -80,8 +77,7 @@ pub fn xor(first: bool, second: bool) -> bool {
 /// | 1 | 0 |  0  |
 /// | 1 | 1 |  1  |
 pub fn xnor(first: bool, second: bool) -> bool {
-    // Write your code here
-    todo!()
+    !(first ^ second)
 }
 
 /// Test if the first number is a multiple of the second number
@@ -93,8 +89,7 @@ pub fn xnor(first: bool, second: bool) -> bool {
 /// assert_eq!(rust_ex::boolean::is_multiple(100, 33), false);
 /// ```
 pub fn is_multiple(number: i32, multiple: i32) -> bool {
-    // Write your code here
-    todo!()
+    (number % multiple) == 0
 }
 
 /// Let's solve a prolem with boolean logic
@@ -126,8 +121,9 @@ pub fn is_multiple(number: i32, multiple: i32) -> bool {
 /// |    1     |    1     |    0     |     0      |
 /// |    1     |    1     |    1     |     1      |
 pub fn light_bulb(switch1: bool, switch2: bool, switch3: bool) -> bool {
-    // Write your code here
-    todo!()
+
+    switch1 ^ switch2 ^ switch3
+
 }
 
 /// Test if either the first 2 input are true or if the 3rd one is true
@@ -156,8 +152,8 @@ pub fn light_bulb(switch1: bool, switch2: bool, switch3: bool) -> bool {
 /// | 1 | 1 | 1 |  1  |
 pub fn first2_or_third(first: bool, second: bool, third: bool) -> bool {
     // Add boolean operators between the inputs to make the test pass, do not change the order of the inputs
-    // Write your code here
-    todo!()
+    // Write your code here 
+    first  second  third
 }
 
 /// Test if the last 2 input are true or if the 1st one is true
