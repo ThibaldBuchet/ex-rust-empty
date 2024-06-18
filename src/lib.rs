@@ -27,5 +27,5 @@ pub const CSV_FILE_LOCATION: &str = "2024-06-17_swisgrid_production.csv";
 /// ```
 pub fn add(left: usize, right: usize) -> usize {
     // Write your code here
-    todo!()
+    left + right
 }
