@@ -153,7 +153,7 @@ pub fn light_bulb(switch1: bool, switch2: bool, switch3: bool) -> bool {
 pub fn first2_or_third(first: bool, second: bool, third: bool) -> bool {
     // Add boolean operators between the inputs to make the test pass, do not change the order of the inputs
     // Write your code here 
-    first  second  third
+    (first && second) || third
 }
 
 /// Test if the last 2 input are true or if the 1st one is true
@@ -183,7 +183,8 @@ pub fn first2_or_third(first: bool, second: bool, third: bool) -> bool {
 pub fn last2_or_first(first: bool, second: bool, third: bool) -> bool {
     // Add boolean operators between the inputs to make the test pass, do not change the order of the inputs
     // Write your code here
-    todo!()
+    first || second && third  
+
 }
 
 /// Test if the first number is between the second and the third number
@@ -202,9 +203,11 @@ pub fn last2_or_first(first: bool, second: bool, third: bool) -> bool {
 /// assert_eq!(rust_ex::boolean::is_between(7, 5, 7), false);
 /// ```
 pub fn is_between(number: i32, first: i32, second: i32) -> bool {
-    // Write your code here
-    todo!()
+    let min = first.min(second);  
+    let max = first.max(second);  
+    number > min && number < max  
 }
+
 
 /// Addition of 2 true bit binary numbers (false or true)
 /// The function should return a tuple with the sum and the carry
@@ -225,7 +228,10 @@ pub fn is_between(number: i32, first: i32, second: i32) -> bool {
 /// | 1 | 1 |  0  |  1   |
 pub fn half_adder(a: bool, b: bool) -> (bool, bool) {
     // Write your code here
-    todo!()
+
+    let sum = a ^ b;
+    let cout = a && b; 
+    (sum, cout)
 }
 
 // Half adder are great but they are limited to adding 2 bits, if we want to be able to add any
@@ -256,6 +262,7 @@ pub fn half_adder(a: bool, b: bool) -> (bool, bool) {
 /// | 1 | 1 |  0  |  0  |  1   |
 /// | 1 | 1 |  1  |  1  |  1   |
 pub fn full_adder(a: bool, b: bool, carry: bool) -> (bool, bool) {
-    // Write your code here
-    todo!()
+    let sum = a ^ b ^ carry;
+    let carry_out = (a & b) | (b & carry) | (a & carry);
+    (sum, carry_out)
 }
