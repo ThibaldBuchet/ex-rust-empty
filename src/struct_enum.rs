@@ -9,7 +9,12 @@
 /// ```
 /// Be careful about the visibility of the fields of the struct
 pub struct Point2D {
+
+    pub x : i32,
+    pub y : i32,
+
     // Write your code here
+    
 }
 
 /// Implement a method to calculate the distance with another point
@@ -23,7 +28,10 @@ pub struct Point2D {
 impl Point2D {
     pub fn distance_with(&self, other: &Point2D) -> f32 {
         // Write your code here
-        todo!()
+        let dx = (self.x - other.x) as f32;
+        let dy = (self.y - other.y) as f32;
+        (dx * dx + dy * dy).sqrt()
+        
     }
 }
 
@@ -54,9 +62,18 @@ impl Point2D {
 /// ```
 pub enum Shape {
     Circle {
+        radius : f64,
+        center : Point2D
+
+
+
         // Write your code here
     },
     Rectangle {
+
+        top_left : Point2D,
+        bottom_right : Point2D
+
         // Write your code here
     },
 }
@@ -87,8 +104,10 @@ pub enum Shape {
 /// ```
 impl Shape {
     pub fn symetric_x(&self) -> Shape {
+
+        
+
         // Write your code here
-        todo!()
     }
 }
 
