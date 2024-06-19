@@ -61,7 +61,9 @@ pub fn get_biggest_and_smallest_elements_from_array(numbers: &[i32]) -> (&i32, &
 /// ```
 pub fn separate_odd_from_even_numbers(numbers: &[i32]) -> (Vec<i32>, Vec<i32>) {
     // Write your code here
-    todo!()
+
+    numbers.iter().copied().partition(|&num| num % 2 != 0)
+
 }
 
 /// Sum the odd numbers together, and the even one together
@@ -73,6 +75,16 @@ pub fn separate_odd_from_even_numbers(numbers: &[i32]) -> (Vec<i32>, Vec<i32>) {
 /// );
 /// ```
 pub fn add_odd_numbers_and_add_even_numbers(numbers: Vec<i32>) -> (i32, i32) {
-    // Write your code here
-    todo!()
+    let mut sum_odd = 0;
+    let mut sum_even = 0;
+
+    for num in numbers {
+        if num % 2 != 0 {
+            sum_odd += num;
+        } else {
+            sum_even += num;
+        }
+    }
+
+    (sum_odd, sum_even)
 }
