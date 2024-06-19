@@ -8,7 +8,10 @@
 /// ```
 pub fn create_array_with_given_number_of_elements(number_of_elements: u32) -> Vec<u32> {
     // Write your code here
-    todo!()
+
+    vec![number_of_elements; number_of_elements as usize]
+
+   
 }
 
 /// Write a loop that creates a suite of int from the first given parameter to the last one (inclusive)
@@ -19,9 +22,15 @@ pub fn create_array_with_given_number_of_elements(number_of_elements: u32) -> Ve
 /// assert_eq!(rust_ex::loops::create_array_with_elements_between_given_numbers(-2,3), vec![-2,-1,0,1,2,3]);
 /// ```
 pub fn create_array_with_elements_between_given_numbers(start: i32, end: i32) -> Vec<i32> {
-    // Write your code here
-    todo!()
+    let mut result = Vec::new();
+
+    for num in start..=end {
+        result.push(num);
+    }
+
+    result
 }
+
 
 /// Write 2 loops that create a matrix with the given colums and rows.
 /// The matrix cell must be filled with the multiplication of the column index and the row index
