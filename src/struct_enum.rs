@@ -9,12 +9,9 @@
 /// ```
 /// Be careful about the visibility of the fields of the struct
 pub struct Point2D {
-
-    pub x : i32,
-    pub y : i32,
-
+    pub x: i32,
+    pub y: i32,
     // Write your code here
-    
 }
 
 /// Implement a method to calculate the distance with another point
@@ -31,7 +28,6 @@ impl Point2D {
         let dx = (self.x - other.x) as f32;
         let dy = (self.y - other.y) as f32;
         (dx * dx + dy * dy).sqrt()
-        
     }
 }
 
@@ -62,19 +58,12 @@ impl Point2D {
 /// ```
 pub enum Shape {
     Circle {
-        radius : f64,
-        center : Point2D
-
-
-
-        // Write your code here
+        radius: f64,
+        center: Point2D, // Write your code here
     },
     Rectangle {
-
-        top_left : Point2D,
-        bottom_right : Point2D
-
-        // Write your code here
+        top_left: Point2D,
+        bottom_right: Point2D, // Write your code here
     },
 }
 
@@ -104,7 +93,6 @@ pub enum Shape {
 /// ```
 impl Shape {
     pub fn symetric_x(&self) -> Shape {
-
         match self {
             Shape::Circle { center, radius } => Shape::Circle {
                 center: Point2D {
@@ -113,7 +101,10 @@ impl Shape {
                 },
                 radius: *radius,
             },
-            Shape::Rectangle { top_left, bottom_right } => Shape::Rectangle {
+            Shape::Rectangle {
+                top_left,
+                bottom_right,
+            } => Shape::Rectangle {
                 top_left: Point2D {
                     x: -top_left.x,
                     y: top_left.y,
@@ -184,7 +175,77 @@ pub struct Token {
 pub fn tokenize(input: String) -> Vec<Token> {
     let mut tokens: Vec<Token> = Vec::new();
 
-    
+    let mut chars = input.chars().peekable();
 
+    while let Some(&ch) = chars.peek() {
+        match ch {
+            ' ' | '\t' | '\n' | '\r' => {
+                chars.next();
+            }
+            '0'..='9' | '.' => {
+                let mut number = String::new();
+                while let Some(&c) = chars.peek() {
+                    if c.is_digit(10) || c == '.' {
+                        number.push(c);
+                        chars.next();
+                    } else {
+                        break;
+                    }
+                }
+                tokens.push(Token {
+                    token_type: TokenType::Number,
+                    value: number,
+                });
+            }
+            '"' => {
+                chars.next();
+                let mut string = String::new();
+                while let Some(&c) = chars.peek() {
+                    if c == '"' {
+                        break;
+                    }
+                    string.push(c);
+                    chars.next();
+                }
+                chars.next();
+                tokens.push(Token {
+                    token_type: TokenType::String,
+                    value: string,
+                });
+            }
+            '+' | '-' | '*' | '/' => {
+                let operator = ch.to_string();
+                tokens.push(Token {
+                    token_type: TokenType::Operator,
+                    value: operator,
+                });
+                chars.next();
+            }
+            '(' | ')' => {
+                let parenthesis = ch.to_string();
+                tokens.push(Token {
+                    token_type: TokenType::Parenthesis,
+                    value: parenthesis,
+                });
+                chars.next();
+            }
+            ';' => {
+                tokens.push(Token {
+                    token_type: TokenType::SemiColon,
+                    value: ch.to_string(),
+                });
+                chars.next();
+            }
+            _ => {
+                panic!("Unknown token: {}", ch);
+            }
+        }
+    }
+
+    tokens
+    
     // Write your code here
+
 }
+
+
