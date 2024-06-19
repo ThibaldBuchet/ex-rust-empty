@@ -105,7 +105,25 @@ pub enum Shape {
 impl Shape {
     pub fn symetric_x(&self) -> Shape {
 
-        
+        match self {
+            Shape::Circle { center, radius } => Shape::Circle {
+                center: Point2D {
+                    x: -center.x,
+                    y: center.y,
+                },
+                radius: *radius,
+            },
+            Shape::Rectangle { top_left, bottom_right } => Shape::Rectangle {
+                top_left: Point2D {
+                    x: -top_left.x,
+                    y: top_left.y,
+                },
+                bottom_right: Point2D {
+                    x: -bottom_right.x,
+                    y: bottom_right.y,
+                },
+            },
+        }
 
         // Write your code here
     }
@@ -165,6 +183,8 @@ pub struct Token {
 /// ```
 pub fn tokenize(input: String) -> Vec<Token> {
     let mut tokens: Vec<Token> = Vec::new();
+
+    
+
     // Write your code here
-    todo!()
 }
