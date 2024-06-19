@@ -10,8 +10,6 @@ pub fn create_array_with_given_number_of_elements(number_of_elements: u32) -> Ve
     // Write your code here
 
     vec![number_of_elements; number_of_elements as usize]
-
-   
 }
 
 /// Write a loop that creates a suite of int from the first given parameter to the last one (inclusive)
@@ -30,7 +28,6 @@ pub fn create_array_with_elements_between_given_numbers(start: i32, end: i32) ->
 
     result
 }
-
 
 /// Write 2 loops that create a matrix with the given colums and rows.
 /// The matrix cell must be filled with the multiplication of the column index and the row index

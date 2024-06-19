@@ -8,8 +8,7 @@
 /// assert_eq!(rust_ex::arrays::average(&[1, 5, 3, 6, 7, 8, 3, 4]), 4.625);
 /// ```
 pub fn average(numbers: &[i32]) -> f32 {
-    // Write your code here
-    todo!()
+    numbers.iter().sum::<i32>() as f32 / numbers.len() as f32
 }
 
 /// Sort all the numbers in the array by size
@@ -22,9 +21,11 @@ pub fn average(numbers: &[i32]) -> f32 {
 /// );
 /// ```
 pub fn sort_array_by_size(numbers: &[i32]) -> Vec<i32> {
-    // Write your code here
-    todo!()
+    let mut sorted_numbers = numbers.to_vec();
+    sorted_numbers.sort(); 
+    sorted_numbers 
 }
+
 
 /// Find the biggest and the smallest values in the array
 ///
@@ -41,7 +42,12 @@ pub fn sort_array_by_size(numbers: &[i32]) -> Vec<i32> {
 /// ```
 pub fn get_biggest_and_smallest_elements_from_array(numbers: &[i32]) -> (&i32, &i32) {
     // Write your code here
-    todo!()
+
+    let max_value = numbers.iter().max().unwrap();
+    let min_value = numbers.iter().min().unwrap();
+
+    (max_value, min_value)
+
 }
 
 /// Create two arrays, one with all odd numbers from the original array, another with all even numbers

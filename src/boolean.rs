@@ -121,9 +121,7 @@ pub fn is_multiple(number: i32, multiple: i32) -> bool {
 /// |    1     |    1     |    0     |     0      |
 /// |    1     |    1     |    1     |     1      |
 pub fn light_bulb(switch1: bool, switch2: bool, switch3: bool) -> bool {
-
     switch1 ^ switch2 ^ switch3
-
 }
 
 /// Test if either the first 2 input are true or if the 3rd one is true
@@ -152,7 +150,7 @@ pub fn light_bulb(switch1: bool, switch2: bool, switch3: bool) -> bool {
 /// | 1 | 1 | 1 |  1  |
 pub fn first2_or_third(first: bool, second: bool, third: bool) -> bool {
     // Add boolean operators between the inputs to make the test pass, do not change the order of the inputs
-    // Write your code here 
+    // Write your code here
     (first && second) || third
 }
 
@@ -183,8 +181,7 @@ pub fn first2_or_third(first: bool, second: bool, third: bool) -> bool {
 pub fn last2_or_first(first: bool, second: bool, third: bool) -> bool {
     // Add boolean operators between the inputs to make the test pass, do not change the order of the inputs
     // Write your code here
-    first || second && third  
-
+    first || second && third
 }
 
 /// Test if the first number is between the second and the third number
@@ -203,11 +200,10 @@ pub fn last2_or_first(first: bool, second: bool, third: bool) -> bool {
 /// assert_eq!(rust_ex::boolean::is_between(7, 5, 7), false);
 /// ```
 pub fn is_between(number: i32, first: i32, second: i32) -> bool {
-    let min = first.min(second);  
-    let max = first.max(second);  
-    number > min && number < max  
+    let min = first.min(second);
+    let max = first.max(second);
+    number > min && number < max
 }
-
 
 /// Addition of 2 true bit binary numbers (false or true)
 /// The function should return a tuple with the sum and the carry
@@ -230,7 +226,7 @@ pub fn half_adder(a: bool, b: bool) -> (bool, bool) {
     // Write your code here
 
     let sum = a ^ b;
-    let cout = a && b; 
+    let cout = a && b;
     (sum, cout)
 }
 
