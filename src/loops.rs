@@ -45,6 +45,7 @@ pub fn create_array_with_elements_between_given_numbers(start: i32, end: i32) ->
 /// )
 /// ```
 pub fn matrix_generation(rows: u32, columns: u32) -> Vec<Vec<u32>> {
-    // Write your code here
-    todo!()
+    (0..rows)
+        .map(|i| (0..columns).map(|j| (i + 1) * (j + 1)).collect())
+        .collect()
 }
