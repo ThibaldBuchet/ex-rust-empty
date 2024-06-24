@@ -185,7 +185,7 @@ pub fn tokenize(input: String) -> Vec<Token> {
             '0'..='9' | '.' => {
                 let mut number = String::new();
                 while let Some(&c) = chars.peek() {
-                    if c.is_digit(10) || c == '.' {
+                    if c.is_ascii_digit() || c == '.' {
                         number.push(c);
                         chars.next();
                     } else {
