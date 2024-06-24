@@ -16,6 +16,15 @@ use crate::deserialize_csv_file::EnergyProduction;
 /// );
 /// ```
 pub fn total_of_energy_production(energy_measures: Vec<EnergyProduction>) -> f64 {
+
+    let total_production: f64 = energy_measures.iter().map(|energy| energy.amount).sum();
+    println!("Total energy production: {} GWh", total_production);
+    
+    total_production
+
+
+
     // Write your code here
-    todo!()
+
+
 }
